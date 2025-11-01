@@ -27,21 +27,11 @@
       "xp": 20
     },
     "T3": {
-      "desc": "Explore the fork button",
+      "desc": "Explore the actions menu",
       "points": 20,
       "xp": 20
     },
     "T4": {
-      "desc": "Explore the readme file",
-      "points": 20,
-      "xp": 20
-    },
-    "T5": {
-      "desc": "Explore the contributors",
-      "points": 20,
-      "xp": 20
-    },
-    "T6": {
       "desc": "Quiz",
       "points": 0,
       "xp": 0
@@ -49,30 +39,25 @@
   },
   "Q2": {
     "metadata": {
-      "title": "Introducing yourself to the community",
+      "title": "Creating a branch to fix issues.",
       "prerequisite": "Q1"
     },
     "T1": {
-      "desc": "Identify the assigned user for the issue",
+      "desc": "Look for an issue to fix",
       "points": 25,
       "xp": 25
     },
     "T2": {
-      "desc": "Choose an issue that you would like to work with",
+      "desc": "Explore the branch menu",
       "points": 25,
       "xp": 25
     },
     "T3": {
-      "desc": "Post a comment in the issue introducing yourself",
+      "desc": "Create a new branch called \"branch\"",
       "points": 25,
       "xp": 25
     },
     "T4": {
-      "desc": "Mention a top contributor to help you to solve the issue",
-      "points": 25,
-      "xp": 25
-    },
-    "T5": {
       "desc": "Quiz",
       "points": 0,
       "xp": 0
@@ -89,16 +74,42 @@
       "xp": 50
     },
     "T2": {
-      "desc": "Post in the pull request asking for a review",
+      "desc": "Make a pull request",
       "points": 25,
       "xp": 25
     },
     "T3": {
-      "desc": "Close the issue",
+      "desc": "Check if merge was successful",
       "points": 25,
       "xp": 25
     },
     "T4": {
+      "desc": "Quiz",
+      "points": 0,
+      "xp": 0
+    }
+  },
+  "Q4": {
+    "metadata" : {
+      "title": "GitHub Actions"
+      "prerequisite": "Q3"
+    },
+    "T1": {
+      "desc": "Add code to YAML file.",
+      "points": 25,
+      "xp": 25
+    },
+    "T2": {
+      "desc": "Explore GitHub Actions.",
+      "points": 25,
+      "xp": 25
+    },
+    "T3": {
+      "desc": "Run YAML file.",
+      "points": 25,
+      "xp": 25
+    }
+    "T4": { 
       "desc": "Quiz",
       "points": 0,
       "xp": 0
