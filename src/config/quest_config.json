@@ -91,7 +91,7 @@
   },
   "Q4": {
     "metadata" : {
-      "title": "GitHub Actions"
+      "title": "GitHub Actions",
       "prerequisite": "Q3"
     },
     "T1": {
@@ -108,7 +108,7 @@
       "desc": "Run YAML file.",
       "points": 25,
       "xp": 25
-    }
+    },
     "T4": { 
       "desc": "Quiz",
       "points": 0,
