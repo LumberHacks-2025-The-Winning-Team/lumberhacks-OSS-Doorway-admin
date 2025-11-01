@@ -95,12 +95,12 @@
       "prerequisite": "Q3"
     },
     "T1": {
-      "desc": "Add code to YAML file.",
+      "desc": "Explore GitHub Action.",
       "points": 25,
       "xp": 25
     },
     "T2": {
-      "desc": "Explore GitHub Actions.",
+      "desc": "Add code to YAML file.",
       "points": 25,
       "xp": 25
     },

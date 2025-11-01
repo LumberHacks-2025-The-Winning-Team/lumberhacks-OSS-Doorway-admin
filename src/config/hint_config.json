@@ -88,15 +88,15 @@
                 "image": "https://github.com/user-attachments/assets/696d5596-73b3-4e69-a648-10adb254fc8b",
                 "sequence": 2,
                 "penalty" : 5
-            }
+            },
             "H2":{
-                "content": "### 💡Hints\n\n**Hint 2:** Create the branch",
+                "content": "### 💡Hints\n\n**Hint 2:** Create a branch named \"branch\"",
                 "video": null,
                 "image": null,
                 "sequence": 1,
                 "penalty" : 5
-            },
-    },
+            }
+        },
     "Q3":{
         "T1":{
             "H1":{
@@ -150,51 +150,58 @@
     "Q4":{
       "T1":{
         "H1":{
-          "content": "### 💡Hints\n\n**Hint 1:** ",
+          "content": "### 💡Hints\n\n**Hint 1:** Read **\"Get started with GitHub Actions\"** and click the **\"setup a workflow yourself hyperlink\"**",
           "video": null,
           "image": null,
           "sequence": 1,
           "penalty" : 5
         },
         "H2":{
-          "content": "### 💡Hints\n\n**Hint 1:** ",
+          "content": "### 💡Hints\n\n**Hint 2:** ",
           "video": null,
           "image": null,
-          "sequence": 1,
+          "sequence": 2,
           "penalty" : 5
         }
       },
       "T2":{
         "H1":{
-          "content": "### 💡Hints\n\n**Hint 1:** ",
+          "content": "### 💡Hints\n\n**Hint 1:** Check the public repository for a YML file that will pull request on push..",
           "video": null,
           "image": null,
           "sequence": 1,
           "penalty" : 5
         },
         "H2":{
-          "content": "### 💡Hints\n\n**Hint 1:** ",
+          "content": "### 💡Hints\n\n**Hint 2:** Copy and paste the **create pr-push-on-push.yml** file from the public repo into your **main.yaml** file",
           "video": null,
           "image": null,
-          "sequence": 1,
+          "sequence": 2,
           "penalty" : 5
         }
       },
       "T3":{
         "H1":{
-          "content": "### 💡Hints\n\n**Hint 1:** ",
-          "video": null,
-          "image": null,
-          "sequence": 1,
-          "penalty" : 5
+            "content": "### 💡Hints\n\n**Hint 1:** To look at branches look for and click the button that says **\"main\"**\n\n",
+            "video": null,
+            "image": "https://github.com/user-attachments/assets/b99abf76-785c-498f-b9cb-dc038c349de0",
+            "sequence": 1,
+            "penalty" : 5
         },
         "H2":{
-          "content": "### 💡Hints\n\n**Hint 1:** ",
-          "video": null,
-          "image": null,
-          "sequence": 1,
-          "penalty" : 5
+            "content": "### 💡Hints \n\n**Hint 2:** Look for the button that says **\"View all branches\**"\n\n",
+            "video": null,
+            "image": "https://github.com/user-attachments/assets/696d5596-73b3-4e69-a648-10adb254fc8b",
+            "sequence": 2,
+            "penalty" : 5
         }
+        "H3":{
+            "content": "### 💡Hints\n\n**Hint 2:** Create a branch named **\"actions\"**",
+            "video": null,
+            "image": null,
+            "sequence": 1,
+            "penalty" : 5
+            }
       }
     }
 }
