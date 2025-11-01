@@ -12,7 +12,7 @@ async function handleQ0T1(user_data, user, context, ossRepo, response, selectedI
     user_data.display_preference = [];
 
     // score
-    if(user_response.includes("a")){
+    if (user_response.includes("a")) {
         // update user json preferences
         user_data.display_preference.push("score");
 
@@ -20,20 +20,20 @@ async function handleQ0T1(user_data, user, context, ossRepo, response, selectedI
         return [response.success, true];
     }
     // map
-    else if(user_response.includes("b")){
+    else if (user_response.includes("b")) {
         user_data.display_preference.push("map");
         await completeTask(user_data, "Q0", "T1", context, db);
         return [response.success, true];
     }
     // both
-    else if(user_response.includes("c")){
+    else if (user_response.includes("c")) {
         user_data.display_preference.push("score");
         user_data.display_preference.push("map");
         await completeTask(user_data, "Q0", "T1", context, db);
         return [response.success, true];
     }
     // neither
-    else if(user_response.includes("d")){
+    else if (user_response.includes("d")) {
         // do nothing, complete task
         await completeTask(user_data, "Q0", "T1", context, db);
         return [response.success, true];
@@ -90,12 +90,12 @@ async function handleQ1T4(user_data, user, context, ossRepo, response, selectedI
 
 async function handleQ1T5(user_data, user, context, ossRepo, response, selectedIssue, db) {
     const topContributor = await utils.getTopContributor(ossRepo, context);
-    
+
     if (context.payload.comment.body.trim() === topContributor) {
         await completeTask(user_data, "Q1", "T5", context, db);
         return [response.success, true];
     }
-    response = response.error; 
+    response = response.error;
     response += `\n\n[Click here to start](https://github.com/${ossRepo})`;
     return [response, false];
 }
@@ -126,7 +126,7 @@ async function handleQ2T2(user_data, user, context, ossRepo, response, selectedI
         await completeTask(user_data, "Q2", "T2", context, db);
         return [response.success, true];
     }
-    
+
     response = response.error;
     response += `\n\n[Click here to start](https://github.com/${ossRepo})`;
     return [response, false];
@@ -171,51 +171,44 @@ async function handleQ2T4(user_data, user, context, ossRepo, response, selectedI
 
 // Q3
 async function handleQ3T1(user_data, user, context, ossRepo, response, selectedIssue, db) {
-    const correctAnswer = "c";
-    if (context.payload.comment.body.toLowerCase() === correctAnswer) {
-        await completeTask(user_data, "Q3", "T1", context, db);
-        return [response.success, true];
-    }
-    response = response.error;
-    response += `\n\n[Click here to start](https://github.com/${ossRepo})`;
-    return [response, false];
+
 }
 
 // Q3 ───────────────────────────────────────────────────────────────────────────
-    async function handleQ3T2( user_data, user, context, ossRepo, response, selectedIssue, db ) {
-        // Has the user opened a PR **and** left a comment on it?
-        if (await utils.userPRAndComment(ossRepo, user, context)) {
+async function handleQ3T2(user_data, user, context, ossRepo, response, selectedIssue, db) {
+    // Has the user opened a PR **and** left a comment on it?
+    if (await utils.userPRAndComment(ossRepo, user, context)) {
         try {
             // Automatically assign the user to the tracked issue
             if (selectedIssue) {
                 const [owner, repo] = ossRepo.split("/");
-                await context.octokit.issues.addAssignees({ owner, repo, issue_number: selectedIssue, assignees: [user],});
+                await context.octokit.issues.addAssignees({ owner, repo, issue_number: selectedIssue, assignees: [user], });
             }
-    
+
             // Mark task complete and return success
             await completeTask(user_data, "Q3", "T2", context, db);
             return [response.success, true];
         } catch (error) {
             console.error("Error assigning user to issue:", error);
             response = response.error +
-            `\n\n❗ Failed to assign you to the issue automatically. Please try again or check the bot’s permissions.`;
-            
+                `\n\n❗ Failed to assign you to the issue automatically. Please try again or check the bot’s permissions.`;
+
             return [response, false];
         }
-        }
-    
-        // Fallback: user hasn’t met the PR-and-comment requirement yet
-        response = response.error;
-        response += `\n\n[Click here to start](https://github.com/${ossRepo})`;
-        return [response, false];
     }
+
+    // Fallback: user hasn’t met the PR-and-comment requirement yet
+    response = response.error;
+    response += `\n\n[Click here to start](https://github.com/${ossRepo})`;
+    return [response, false];
+}
 
 async function handleQ3T3(user_data, user, context, ossRepo, response, selectedIssue, db) {
     if (await utils.issueClosed(ossRepo, selectedIssue, context)) {
         await completeTask(user_data, "Q3", "T3", context, db);
         const newPoints = user_data.streakCount * 100;
         user_data.points += newPoints;
-        return [response.success, true]; 
+        return [response.success, true];
     }
     response = response.error;
     response += `\n\n[Click here to start](https://github.com/${ossRepo})`;
@@ -225,63 +218,63 @@ async function handleQ3T3(user_data, user, context, ossRepo, response, selectedI
 // QUIZES
 
 async function handleQ1Quiz(user_data, user, context, ossRepo, response, selectedIssue, db) {
-    const correctAnswers = ["b", "a", "c", "b", "d"]; 
+    const correctAnswers = ["b", "a", "c", "b", "d"];
     const userAnswerString = context.payload.comment.body;
-    
-    try {
-      const { correctAnswersNumber, feedback } = utils.validateAnswers(userAnswerString, correctAnswers);
-  
-      await completeTask(user_data, "Q1", "T6", context, db);
-  
-      response = response.success + 
-        `\n ## You correctly answered ${correctAnswersNumber} questions!` + 
-        `\n\n ### Feedback:\n${feedback.join('')}`;
 
-      return [response, true];
+    try {
+        const { correctAnswersNumber, feedback } = utils.validateAnswers(userAnswerString, correctAnswers);
+
+        await completeTask(user_data, "Q1", "T6", context, db);
+
+        response = response.success +
+            `\n ## You correctly answered ${correctAnswersNumber} questions!` +
+            `\n\n ### Feedback:\n${feedback.join('')}`;
+
+        return [response, true];
     } catch (error) {
-      console.log(error);
-      response = response.error + `\n\n[Click here to start](https://github.com/${ossRepo})`;
-      return [response, false];
+        console.log(error);
+        response = response.error + `\n\n[Click here to start](https://github.com/${ossRepo})`;
+        return [response, false];
     }
 }
 
 async function handleQ2Quiz(user_data, user, context, ossRepo, response, selectedIssue, db) {
-    const correctAnswers = ["a", "b", "c", "c", "d", "b"]; 
+    const correctAnswers = ["a", "b", "c", "c", "d", "b"];
     const userAnswerString = context.payload.comment.body;
-    
-    try {
-      const { correctAnswersNumber, feedback } = utils.validateAnswers(userAnswerString, correctAnswers);
-  
-      await completeTask(user_data, "Q2", "T5", context, db);
-  
-      response = response.success + 
-        `\n ## You correctly answered ${correctAnswersNumber} questions!` + 
-        `\n\n ### Feedback:\n${feedback.join('')}`;
 
-      return [response, true];
+    try {
+        const { correctAnswersNumber, feedback } = utils.validateAnswers(userAnswerString, correctAnswers);
+
+        await completeTask(user_data, "Q2", "T5", context, db);
+
+        response = response.success +
+            `\n ## You correctly answered ${correctAnswersNumber} questions!` +
+            `\n\n ### Feedback:\n${feedback.join('')}`;
+
+        return [response, true];
     } catch (error) {
-      response = response.error + `\n\n[Click here to start](https://github.com/${ossRepo})`;
-      return [response, false];
+        response = response.error + `\n\n[Click here to start](https://github.com/${ossRepo})`;
+        return [response, false];
     }
 }
 
 async function handleQ3Quiz(user_data, user, context, ossRepo, response, selectedIssue, db) {
-    const correctAnswers = ["b", "c", "c", "b", "b", "d"]; 
+    const correctAnswers = ["b", "c", "c", "b", "b", "d"];
     const userAnswerString = context.payload.comment.body;
-    
-    try {
-      const { correctAnswersNumber, feedback } = utils.validateAnswers(userAnswerString, correctAnswers);
-  
-      await completeTask(user_data, "Q3", "T4", context, db);
-  
-      response = response.success + 
-        `\n ## You correctly answered ${correctAnswersNumber} questions!` + 
-        `\n\n ### Feedback:\n${feedback.join('')}`;
 
-      return [response, true];
+    try {
+        const { correctAnswersNumber, feedback } = utils.validateAnswers(userAnswerString, correctAnswers);
+
+        await completeTask(user_data, "Q3", "T4", context, db);
+
+        response = response.success +
+            `\n ## You correctly answered ${correctAnswersNumber} questions!` +
+            `\n\n ### Feedback:\n${feedback.join('')}`;
+
+        return [response, true];
     } catch (error) {
-      response = response.error + `\n\n[Click here to start](https://github.com/${ossRepo})`;
-      return [response, false];
+        response = response.error + `\n\n[Click here to start](https://github.com/${ossRepo})`;
+        return [response, false];
     }
 }
 
