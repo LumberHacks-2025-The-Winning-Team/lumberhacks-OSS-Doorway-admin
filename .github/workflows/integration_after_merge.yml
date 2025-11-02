@@ -1,0 +1,13 @@
+name: Integration Test After Merge
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  integration-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run all integration tests
+        run: pytest tests/test_integration.py
