@@ -199,119 +199,119 @@
     },
     "Q4":{
       "T1": {
-          "H1": {
-            "content": "### 💡Hints\n\n**Hint 1:** Use the command `git branch` to list all available branches. This helps confirm whether your new branch already exists or not.",
-            "video": null,
-            "image": "https://github.com/user-attachments/assets/branch-hint1.png",
-            "sequence": 1,
-            "penalty": 5
-          },
-          "H2": {
-            "content": "### 💡Hints\n\n**Hint 2:** To create and switch to a new branch in one step, use `git checkout -b <branch-name>`. For example: `git checkout -b feature-login`.",
-            "video": null,
-            "image": "https://github.com/user-attachments/assets/branch-hint2.png",
-            "sequence": 2,
-            "penalty": 5
-          },
-          "H3": {
-            "content": "### 💡Hints\n\n**Hint 3:** You can verify your current branch anytime using `git status` or `git branch --show-current`.",
-            "video": null,
-            "image": "https://github.com/user-attachments/assets/branch-hint3.png",
-            "sequence": 3,
-            "penalty": 5
-          }
-        },
-        "T2": {
-          "H1": {
-            "content": "### 💡Hints\n\n**Hint 1:** Workflow YAML files must be stored in the `.github/workflows/` directory for GitHub to detect them automatically.",
-            "video": null,
-            "image": "https://github.com/user-attachments/assets/actions-hint1.png",
-            "sequence": 1,
-            "penalty": 5
-          },
-          "H2": {
-            "content": "### 💡Hints\n\n**Hint 2:** Make sure your file name ends with `.yml` or `.yaml` — for example, `ci.yml`. GitHub Actions will ignore files with the wrong extension.",
-            "video": null,
-            "image": "https://github.com/user-attachments/assets/actions-hint2.png",
-            "sequence": 2,
-            "penalty": 5
-          },
-          "H3": {
-            "content": "### 💡Hints\n\n**Hint 3:** Check your YAML’s indentation — incorrect spacing or missing colons often cause workflow errors.",
-            "video": null,
-            "image": "https://github.com/user-attachments/assets/actions-hint3.png",
-            "sequence": 3,
-            "penalty": 5
-          }
-        },
-        "T3": {
-          "H1": {
-            "content": "### 💡Hints\n\n**Hint 1:** Always stage your files before committing: `git add .` adds all modified files to your next commit.",
-            "video": null,
-            "image": "https://github.com/user-attachments/assets/push-hint1.png",
-            "sequence": 1,
-            "penalty": 5
-          },
-          "H2": {
-            "content": "### 💡Hints\n\n**Hint 2:** After staging, commit your changes with `git commit -m \"your message\"` to save them locally.",
-            "video": null,
-            "image": "https://github.com/user-attachments/assets/push-hint2.png",
-            "sequence": 2,
-            "penalty": 5
-          },
-        "H3": {
-          "content": "### 💡Hints\n\n**Hint 3:** Use `git push -u origin <branch>` the first time you push a branch. This sets up tracking between your local and remote branches.",
+        "H1": {
+          "content": "### 💡Hint 1\n\nGo to your repository’s **Actions** tab in GitHub. This is where all workflow automation happens — you’ll see a list of past and active workflows here.",
           "video": null,
-          "image": "https://github.com/user-attachments/assets/push-hint3.png",
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint1.png",
+          "sequence": 1,
+          "penalty": 5
+        },
+        "H2": {
+          "content": "### 💡Hint 2\n\nIf there are no workflows yet, click **“New workflow”**. GitHub will show templates for CI/CD, testing, and deployment that you can use or customize.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint2.png",
+          "sequence": 2,
+          "penalty": 5
+        },
+        "H3": {
+          "content": "### 💡Hint 3\n\nChoose **“set up a workflow yourself”** if you want to create a blank YAML file and configure your workflow manually in the browser editor.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint3.png",
+          "sequence": 3,
+          "penalty": 5
+        }
+      },
+      "T2": {
+        "H1": {
+          "content": "### 💡Hint 1\n\nWorkflow files must be stored in the **`.github/workflows/`** directory. You can verify this in the **Code** tab by expanding the folder tree.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint4.png",
+          "sequence": 1,
+          "penalty": 5
+        },
+        "H2": {
+          "content": "### 💡Hint 2\n\nMake sure your workflow filename ends with `.yml` or `.yaml`. Files with other extensions will not appear in the **Actions** tab.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint5.png",
+          "sequence": 2,
+          "penalty": 5
+        },
+        "H3": {
+          "content": "### 💡Hint 3\n\nOpen the YAML file in the GitHub editor and look for the `name:` field at the top — this is how your workflow will appear in the Actions list.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint6.png",
+          "sequence": 3,
+          "penalty": 5
+        }
+      },
+      "T3": {
+        "H1": {
+          "content": "### 💡Hint 1\n\nOnce a workflow file is committed, GitHub will automatically trigger it based on the `on:` event. Check the **Actions** tab to see recent runs.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint7.png",
+          "sequence": 1,
+          "penalty": 5
+        },
+        "H2": {
+          "content": "### 💡Hint 2\n\nClick a workflow run to open its logs. Each job and step can be expanded to show output, timing, and errors.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint8.png",
+          "sequence": 2,
+          "penalty": 5
+        },
+        "H3": {
+          "content": "### 💡Hint 3\n\nYou can view workflow triggers by clicking the **ellipsis (⋯)** menu next to the workflow name and choosing **View workflow file**.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint9.png",
           "sequence": 3,
           "penalty": 5
         }
       },
       "T4": {
         "H1": {
-          "content": "### 💡Hints\n\n**Hint 1:** Go to the **Pull Requests** tab to review open PRs — you can see their status, comments, and linked issues there.",
+          "content": "### 💡Hint 1\n\nIf a workflow fails, its run will be marked with a red ❌ icon in the **Actions** tab. Click it to see which step caused the issue.",
           "video": null,
-          "image": "https://github.com/user-attachments/assets/pr-hint1.png",
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint10.png",
           "sequence": 1,
           "penalty": 5
         },
         "H2": {
-          "content": "### 💡Hints\n\n**Hint 2:** Click on any PR to view its details — check the \"Files changed\" tab to identify what code needs fixing.",
+          "content": "### 💡Hint 2\n\nUnder the **Logs** tab, scroll through each job to find error messages — they’re often highlighted in red for easy visibility.",
           "video": null,
-          "image": "https://github.com/user-attachments/assets/pr-hint2.png",
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint11.png",
           "sequence": 2,
           "penalty": 5
         },
         "H3": {
-          "content": "### 💡Hints\n\n**Hint 3:** If a GitHub Action fails, open the **\"Checks\"** or **\"Actions\"** tab on the PR to inspect detailed logs and see where the problem occurred.",
+          "content": "### 💡Hint 3\n\nIf you fixed the issue, click **“Re-run jobs”** on the failed workflow page. You can choose to re-run failed jobs or all jobs.",
           "video": null,
-          "image": "https://github.com/user-attachments/assets/pr-hint3.png",
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint12.png",
           "sequence": 3,
           "penalty": 5
         }
       },
       "T5": {
         "H1": {
-          "content": "### 💡Hints\n\n**Hint 1:** Before merging, ensure that all checks (tests, builds) have passed — this helps prevent broken code on the main branch.",
+          "content": "### 💡Hint 1\n\nTo disable or delete a workflow, navigate to the file under `.github/workflows/` in the **Code** tab. Click the trash 🗑️ icon to remove it.",
           "video": null,
-          "image": "https://github.com/user-attachments/assets/merge-hint1.png",
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint13.png",
           "sequence": 1,
           "penalty": 5
         },
         "H2": {
-          "content": "### 💡Hints\n\n**Hint 2:** Use the **\"Merge pull request\"** button on GitHub to combine your feature branch into `main`. Confirm with a commit message if prompted.",
+          "content": "### 💡Hint 2\n\nYou can temporarily disable a workflow by commenting out the `on:` section or renaming the file so it doesn’t end in `.yml`.",
           "video": null,
-          "image": "https://github.com/user-attachments/assets/merge-hint2.png",
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint14.png",
           "sequence": 2,
           "penalty": 5
         },
         "H3": {
-          "content": "### 💡Hints\n\n**Hint 3:** After merging, delete your branch (both remote and local) to keep your repo organized. Use `git branch -d <branch>` locally.",
+          "content": "### 💡Hint 3\n\nIf you need to stop workflows from running automatically, open **Repository Settings → Actions → General** and adjust permissions or disable Actions entirely.",
           "video": null,
-          "image": "https://github.com/user-attachments/assets/merge-hint3.png",
+          "image": "https://github.com/user-attachments/assets/actions-ui-hint15.png",
           "sequence": 3,
           "penalty": 5
         }
       }
-  }
+    }
 }
