@@ -60,18 +60,24 @@ bugs mentioned by the integration tests.
 Provided Unit & Integration Tests
 ---
 
-When the user copies all of the GitHub Actions file as mentioned in _Task 3_,
-the 
+In _Q4 T3_, the user is asked to copy some files from the public repo into their
+user repo:
 
-Another Actions file that is copied will automatically run unit tests via
+- Buggy python code
+- Several GitHub Actions files
+
+One of the GitHub Actions files will automatically create a **pull request**
+when the repo is published.
+
+Another GitHub Actions file that's copied will automatically run unit tests via
 `pytest` to verify that the user-modified code is correct.
 
-Once the first set of unit tests are fixed the user is asked to merge the fixes
-from the first automatically created branch to their working branch.
+Once the first set of unit tests are fixed the user is asked to fix the
+the first buggy script and commit+push their changes to their working branch.
 
 Then, the user will be instructed to fix and merge the code referenced by the
-failing unit tests in the other automatically created branch,
-and to also merge their changes to their working branch.
+failing unit tests created by the other buggy script,
+and to also commit+push their changes to their working branch.
 
 Once the all the unit tests pass, they're asked to make sure the integration
 tests mentioned in the Pull Request pass when merging their working branch into
