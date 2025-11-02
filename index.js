@@ -126,7 +126,6 @@ async function parseCommand(context, org, comment) {
           if (status) {
             response = responses.newUserResponse;
             var user_document = await db.downloadUserData(argument);
-            gameFunction.acceptQuest(context, user_document.user_data, "Q0");
             
             // create the user's repository first
             try {
@@ -136,6 +135,7 @@ async function parseCommand(context, org, comment) {
                 private: true,
                 auto_init: true,
               });
+              console.log("Repository created successfully:", repoResponse.data.html_url);
 
               // invite user to their repository
               await context.octokit.repos.addCollaborator({
@@ -164,19 +164,24 @@ async function parseCommand(context, org, comment) {
               });
               
               response += " Repository created successfully.";
+              
+              // Only proceed with quest creation if repository creation succeeded
+              gameFunction.acceptQuest(context, user_document.user_data, "Q0");
+              
+              // update readme and data in the user's repository, not the admin repo
+              gameFunction.updateReadme(
+                owner,
+                argument, // use the username as the repo name
+                context,
+                user_document.user_data
+              );
+              await db.updateData(user_document);
+              
             } catch (error) {
               console.error("Error creating repository:", error);
               response += " (Note: Repository creation failed, but user was created in database)";
+              // Don't proceed with quest creation if repository creation failed
             }
-            
-            // update readme and data in the user's repository, not the admin repo
-            gameFunction.updateReadme(
-              owner,
-              argument, // use the username as the repo name
-              context,
-              user_document.user_data
-            );
-            await db.updateData(user_document);
           } else {
             response = "Failed to create new user, user already exists";
           }
