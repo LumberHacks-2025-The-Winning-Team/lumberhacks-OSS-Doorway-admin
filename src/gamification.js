@@ -20,7 +20,7 @@ const mapRepoLink = quests.map_repo_link;
 //////////////////////////////////
 
 // Will also start the first task associated with quest
-async function acceptQuest(context, user_data, quest) {
+async function acceptQuest(context, user_data, "Q4") {
   const { owner, repo } = context.repo();
   try {
     // Read in available qeusts and validate requested quest
