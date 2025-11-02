@@ -127,10 +127,52 @@ async function parseCommand(context, org, comment) {
             response = responses.newUserResponse;
             var user_document = await db.downloadUserData(argument);
             gameFunction.acceptQuest(context, user_document.user_data, "Q0");
-            // update readme and data
+            
+            // create the user's repository first
+            try {
+              const repoResponse = await context.octokit.repos.createInOrg({
+                org: owner,
+                name: argument,
+                private: true,
+                auto_init: true,
+              });
+
+              // invite user to their repository
+              await context.octokit.repos.addCollaborator({
+                owner: owner,
+                repo: argument,
+                username: argument,
+                permission: "triage",
+              });
+
+              // invite user to OSS Repo
+              const ossRepoData = process.env.OSS_REPO.split('/');
+              await context.octokit.repos.addCollaborator({
+                owner: ossRepoData[0],
+                repo: ossRepoData[1],
+                username: argument,
+                permission: "triage",
+              });
+
+              // create issue in OSS Repo with non-code contribution tag
+              await context.octokit.issues.create({
+                owner: ossRepoData[0],
+                repo: ossRepoData[1],
+                title: argument,
+                body: "The Readme file is currently lengthy and complex, making it challenging for newcomers to comprehend how to contribute effectively to the project.\n\nTo enhance accessibility and clarity, I propose relocating the Contributing section to the beginning of the Readme file and streamlining its content where feasible.\n\nI kindly request assistance from anyone willing to dedicate time to address this issue and improve the project's accessibility for all contributors. Thank you!",
+                labels: ["non-code contribution"]
+              });
+              
+              response += " Repository created successfully.";
+            } catch (error) {
+              console.error("Error creating repository:", error);
+              response += " (Note: Repository creation failed, but user was created in database)";
+            }
+            
+            // update readme and data in the user's repository, not the admin repo
             gameFunction.updateReadme(
               owner,
-              repo,
+              argument, // use the username as the repo name
               context,
               user_document.user_data
             );
