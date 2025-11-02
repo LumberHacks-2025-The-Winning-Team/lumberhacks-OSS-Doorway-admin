@@ -1,0 +1,13 @@
+name: Unit Test Feature Branch
+
+on:
+  push:
+    branches: [fix-negative-bug]
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run negative bug unit test
+        run: pytest tests/test_fix_negatives.py
