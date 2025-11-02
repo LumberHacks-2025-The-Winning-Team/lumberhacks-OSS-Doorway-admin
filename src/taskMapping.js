@@ -222,6 +222,65 @@ async function handleQ3T3(user_data, user, context, ossRepo, response, selectedI
     return [response, false];
 }
 
+
+async function handleQ4T1(user_data, user, context, ossRepo, response, selectedIssue, db) {
+    const correctAnswer = "b"; // example correct option
+    if (context.payload.comment.body.toLowerCase().trim() === correctAnswer) {
+        await completeTask(user_data, "Q4", "T1", context, db);
+        return [response.success, true];
+    }
+    response = response.error;
+    response += `\n\n[Click here to start](https://github.com/${ossRepo})`;
+    return [response, false];
+}
+
+// ✅ Q4T2 — Create Branch "fix-negative-bug"
+async function handleQ4T2(user_data, user, context, ossRepo, response, selectedIssue, db) {
+    const correctAnswer = "a"; // example correct option
+    if (context.payload.comment.body.toLowerCase().trim() === correctAnswer) {
+        await completeTask(user_data, "Q4", "T2", context, db);
+        return [response.success, true];
+    }
+    response = response.error;
+    response += `\n\n[Click here to start](https://github.com/${ossRepo})`;
+    return [response, false];
+}
+
+// ✅ Q4T3 — Commit and Push Changes
+async function handleQ4T3(user_data, user, context, ossRepo, response, selectedIssue, db) {
+    const correctAnswer = "c"; // example correct option
+    if (context.payload.comment.body.toLowerCase().trim() === correctAnswer) {
+        await completeTask(user_data, "Q4", "T3", context, db);
+        return [response.success, true];
+    }
+    response = response.error;
+    response += `\n\n[Click here to start](https://github.com/${ossRepo})`;
+    return [response, false];
+}
+
+// ✅ Q4T4 — Check PRs and Fix Bugs
+async function handleQ4T4(user_data, user, context, ossRepo, response, selectedIssue, db) {
+    const correctAnswer = "d"; // example correct option
+    if (context.payload.comment.body.toLowerCase().trim() === correctAnswer) {
+        await completeTask(user_data, "Q4", "T4", context, db);
+        return [response.success, true];
+    }
+    response = response.error;
+    response += `\n\n[Click here to start](https://github.com/${ossRepo}/pulls)`;
+    return [response, false];
+}
+
+// ✅ Q4T5 — Merge Changes
+async function handleQ4T5(user_data, user, context, ossRepo, response, selectedIssue, db) {
+    const correctAnswer = "b"; // example correct option
+    if (context.payload.comment.body.toLowerCase().trim() === correctAnswer) {
+        await completeTask(user_data, "Q4", "T5", context, db);
+        return [response.success, true];
+    }
+    response = response.error;
+    response += `\n\n[Click here to start](https://github.com/${ossRepo}/pulls)`;
+    return [response, false];
+}
 // QUIZES
 
 async function handleQ1Quiz(user_data, user, context, ossRepo, response, selectedIssue, db) {

@@ -110,12 +110,12 @@
       "prerequisite": "Q3"
     },
     "T1":{
-      "desc": "Create a branch!",
+      "desc": "Copy all the GitHub Actions files from the public repo into yours!",
       "points": 30,
       "xp": 30
     },
     "T2":{
-      "desc": "Copy all the GitHub Actions files from the public repo into yours!",
+      "desc": "Create a branch called \"fix-negative-bug\"!",
       "points": 30,
       "xp": 30
     },
@@ -125,7 +125,7 @@
       "xp": 30
     }
     "T4":{
-      "desc": "Check pull requests tab and fix bugs in the code!",
+      "desc": "Check pull requests tab and fix bugs in branches with the name corresponding with the bug type!",
       "points": 30,
       "xp": 30
     },
