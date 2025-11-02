@@ -106,7 +106,7 @@
   },
   "Q4":{
     "metadata":{
-      "title": "Working with GitHub Actions"
+      "title": "Working with GitHub Actions",
       "prerequisite": "Q3"
     },
     "T1":{
@@ -120,9 +120,9 @@
       "xp": 30
     },
     "T3":{
-      "desc": "Commit and push your changes!"
-      "points":
-      "xp":
+      "desc": "Commit and push your changes!",
+      "points": 30,
+      "xp": 30
     }
     "T4":{
       "desc": "Check pull requests tab and fix bugs in the code!",
