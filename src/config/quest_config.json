@@ -1,138 +1,143 @@
 {
-  "map_repo_link": "https://raw.githubusercontent.com/caiton1/OSS-Doorway/main/map",
-  "Q0": {
-    "metadata": {
-      "title": "Configuring your environment",
-      "prerequisite": null
+    "map_repo_link": "https://raw.githubusercontent.com/caiton1/OSS-Doorway/main/map",
+    "Q0": {
+        "metadata": {
+            "title": "Configuring your environment",
+            "prerequisite": null
+        },
+        "T1": {
+            "desc": "Environment Preferences",
+            "points": 0,
+            "xp": 0
+        }
     },
-    "T1": {
-      "desc": "Environment Preferences",
-      "points": 0,
-      "xp": 0
+    "Q1": {
+        "metadata": {
+            "title": "Exploring the GitHub World",
+            "prerequisite": null
+        },
+        "T1": {
+            "desc": "Explore the issue tracker",
+            "points": 20,
+            "xp": 20
+        },
+        "T2": {
+            "desc": "Explore the pull-request menu",
+            "points": 20,
+            "xp": 20
+        },
+        "T3": {
+            "desc": "Explore the fork button",
+            "points": 20,
+            "xp": 20
+        },
+        "T4": {
+            "desc": "Explore the readme file",
+            "points": 20,
+            "xp": 20
+        },
+        "T5": {
+            "desc": "Explore the contributors",
+            "points": 20,
+            "xp": 20
+        },
+        "T6": {
+            "desc": "Quiz",
+            "points": 0,
+            "xp": 0
+        }
+    },
+    "Q2": {
+        "metadata": {
+            "title": "Introducing yourself to the community",
+            "prerequisite": "Q1"
+        },
+        "T1": {
+            "desc": "Identify the assigned user for the issue",
+            "points": 25,
+            "xp": 25
+        },
+        "T2": {
+            "desc": "Choose an issue that you would like to work with",
+            "points": 25,
+            "xp": 25
+        },
+        "T3": {
+            "desc": "Post a comment in the issue introducing yourself",
+            "points": 25,
+            "xp": 25
+        },
+        "T4": {
+            "desc": "Mention a top contributor to help you to solve the issue",
+            "points": 25,
+            "xp": 25
+        },
+        "T5": {
+            "desc": "Quiz",
+            "points": 0,
+            "xp": 0
+        }
+    },
+    "Q3": {
+        "metadata": {
+            "title": "Making your first contribution",
+            "prerequisite": "Q2"
+        },
+        "T1": {
+            "desc": "Solve the issue (upload a file/make commit)",
+            "points": 50,
+            "xp": 50
+        },
+        "T2": {
+            "desc": "Post in the pull request asking for a review",
+            "points": 25,
+            "xp": 25
+        },
+        "T3": {
+            "desc": "Close the issue",
+            "points": 25,
+            "xp": 25
+        },
+        "T4": {
+            "desc": "Quiz",
+            "points": 0,
+            "xp": 0
+        }
+    },
+    "Q4": {
+        "metadata": {
+            "title": "Working with GitHub Actions",
+            "prerequisite": "Q3"
+        },
+        "T1": {
+            "desc": "Create a branch!",
+            "points": 30,
+            "xp": 30
+        },
+        "T2": {
+            "desc": "Copy all the GitHub Actions files from the public repo into yours!",
+            "points": 30,
+            "xp": 30
+        },
+        "T3": {
+            "desc": "Commit and push your changes!",
+            "points": 30,
+            "xp": 30
+        },
+        "T4": {
+            "desc": "Check pull requests tab and fix bugs in the code!",
+            "points": 30,
+            "xp": 30
+        },
+        "T5": {
+            "desc": "Merge your changes!",
+            "points": 40,
+            "xp": 40
+        },
+        "T6": {
+            "desc": "Quiz",
+            "points": 0,
+            "xp": 0
+        }
     }
-  },
-  "Q1": {
-    "metadata": {
-      "title": "Exploring the GitHub World",
-      "prerequisite": null
-    },
-    "T1": {
-      "desc": "Explore the issue tracker",
-      "points": 20,
-      "xp": 20
-    },
-    "T2": {
-      "desc": "Explore the pull-request menu",
-      "points": 20,
-      "xp": 20
-    },
-    "T3": {
-      "desc": "Explore the fork button",
-      "points": 20,
-      "xp": 20
-    },
-    "T4": {
-      "desc": "Explore the readme file",
-      "points": 20,
-      "xp": 20
-    },
-    "T5": {
-      "desc": "Explore the contributors",
-      "points": 20,
-      "xp": 20
-    },
-    "T6": {
-      "desc": "Quiz",
-      "points": 0,
-      "xp": 0
-    }
-  },
-  "Q2": {
-    "metadata": {
-      "title": "Introducing yourself to the community",
-      "prerequisite": "Q1"
-    },
-    "T1": {
-      "desc": "Identify the assigned user for the issue",
-      "points": 25,
-      "xp": 25
-    },
-    "T2": {
-      "desc": "Choose an issue that you would like to work with",
-      "points": 25,
-      "xp": 25
-    },
-    "T3": {
-      "desc": "Post a comment in the issue introducing yourself",
-      "points": 25,
-      "xp": 25
-    },
-    "T4": {
-      "desc": "Mention a top contributor to help you to solve the issue",
-      "points": 25,
-      "xp": 25
-    },
-    "T5": {
-      "desc": "Quiz",
-      "points": 0,
-      "xp": 0
-    }
-  },
-  "Q3": {
-    "metadata": {
-      "title": "Making your first contribution",
-      "prerequisite": "Q2"
-    },
-    "T1": {
-      "desc": "Solve the issue (upload a file/make commit)",
-      "points": 50,
-      "xp": 50
-    },
-    "T2": {
-      "desc": "Post in the pull request asking for a review",
-      "points": 25,
-      "xp": 25
-    },
-    "T3": {
-      "desc": "Close the issue",
-      "points": 25,
-      "xp": 25
-    },
-    "T4": {
-      "desc": "Quiz",
-      "points": 0,
-      "xp": 0
-    }
-  },
-  "Q4": {
-    "metadata": {
-      "title": "Advanced GitHub Actions and Testing",
-      "prerequisite": "Q3"
-    },
-    "T1": {
-      "desc": "Create a new branch for your work",
-      "points": 20,
-      "xp": 20
-    },
-    "T2": {
-      "desc": "Copy the GitHub Actions workflow file and commit changes",
-      "points": 25,
-      "xp": 25
-    },
-    "T3": {
-      "desc": "Copy the sample code, fix bugs, and ensure tests pass",
-      "points": 30,
-      "xp": 30
-    },
-    "T4": {
-      "desc": "Review and fix any bugs caught by unit tests",
-      "points": 15,
-      "xp": 15
-    },
-    "T5": {
-      "desc": "Approve PR and ensure integration tests pass",
-      "points": 10,
-      "xp": 10
-    }
-  }
 }

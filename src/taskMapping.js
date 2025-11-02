@@ -285,6 +285,26 @@ async function handleQ3Quiz(user_data, user, context, ossRepo, response, selecte
     }
 }
 
+async function handleQ4Quiz(user_data, user, context, ossRepo, response, selectedIssue, db) {
+    const correctAnswers = ["c", "c", "b", "b", "a", "b"]; 
+    const userAnswerString = context.payload.comment.body;
+    
+    try {
+      const { correctAnswersNumber, feedback } = utils.validateAnswers(userAnswerString, correctAnswers);
+  
+      await completeTask(user_data, "Q4", "T6", context, db);
+  
+      response = response.success + 
+        `\n ## You correctly answered ${correctAnswersNumber} questions!` + 
+        `\n\n ### Feedback:\n${feedback.join('')}`;
+
+      return [response, true];
+    } catch (error) {
+      response = response.error + `\n\n[Click here to start](https://github.com/${ossRepo})`;
+      return [response, false];
+    }
+}
+
 // export quest functions as dictionary
 export const taskMapping = {
     Q0: {
@@ -310,5 +330,13 @@ export const taskMapping = {
         T2: handleQ3T2,
         T3: handleQ3T3,
         T4: handleQ3Quiz,
-    }
+    },
+  Q4: {
+    T1: handleQ4T1,
+    T2: handleQ4T2,
+    T3: handleQ4T3,
+    T4: handleQ4T4,
+    T5: handleQ4T5,
+    T6: handleQ4Quiz,
+  }
 };

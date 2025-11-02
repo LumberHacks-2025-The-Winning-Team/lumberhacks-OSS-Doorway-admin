@@ -196,5 +196,122 @@
                 "penalty" : 5
             }
         }
-    }
+    },
+    "Q4":{
+      "T1": {
+          "H1": {
+            "content": "### 💡Hints\n\n**Hint 1:** Use the command `git branch` to list all available branches. This helps confirm whether your new branch already exists or not.",
+            "video": null,
+            "image": "https://github.com/user-attachments/assets/branch-hint1.png",
+            "sequence": 1,
+            "penalty": 5
+          },
+          "H2": {
+            "content": "### 💡Hints\n\n**Hint 2:** To create and switch to a new branch in one step, use `git checkout -b <branch-name>`. For example: `git checkout -b feature-login`.",
+            "video": null,
+            "image": "https://github.com/user-attachments/assets/branch-hint2.png",
+            "sequence": 2,
+            "penalty": 5
+          },
+          "H3": {
+            "content": "### 💡Hints\n\n**Hint 3:** You can verify your current branch anytime using `git status` or `git branch --show-current`.",
+            "video": null,
+            "image": "https://github.com/user-attachments/assets/branch-hint3.png",
+            "sequence": 3,
+            "penalty": 5
+          }
+        },
+        "T2": {
+          "H1": {
+            "content": "### 💡Hints\n\n**Hint 1:** Workflow YAML files must be stored in the `.github/workflows/` directory for GitHub to detect them automatically.",
+            "video": null,
+            "image": "https://github.com/user-attachments/assets/actions-hint1.png",
+            "sequence": 1,
+            "penalty": 5
+          },
+          "H2": {
+            "content": "### 💡Hints\n\n**Hint 2:** Make sure your file name ends with `.yml` or `.yaml` — for example, `ci.yml`. GitHub Actions will ignore files with the wrong extension.",
+            "video": null,
+            "image": "https://github.com/user-attachments/assets/actions-hint2.png",
+            "sequence": 2,
+            "penalty": 5
+          },
+          "H3": {
+            "content": "### 💡Hints\n\n**Hint 3:** Check your YAML’s indentation — incorrect spacing or missing colons often cause workflow errors.",
+            "video": null,
+            "image": "https://github.com/user-attachments/assets/actions-hint3.png",
+            "sequence": 3,
+            "penalty": 5
+          }
+        },
+        "T3": {
+          "H1": {
+            "content": "### 💡Hints\n\n**Hint 1:** Always stage your files before committing: `git add .` adds all modified files to your next commit.",
+            "video": null,
+            "image": "https://github.com/user-attachments/assets/push-hint1.png",
+            "sequence": 1,
+            "penalty": 5
+          },
+          "H2": {
+            "content": "### 💡Hints\n\n**Hint 2:** After staging, commit your changes with `git commit -m \"your message\"` to save them locally.",
+            "video": null,
+            "image": "https://github.com/user-attachments/assets/push-hint2.png",
+            "sequence": 2,
+            "penalty": 5
+          },
+        "H3": {
+          "content": "### 💡Hints\n\n**Hint 3:** Use `git push -u origin <branch>` the first time you push a branch. This sets up tracking between your local and remote branches.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/push-hint3.png",
+          "sequence": 3,
+          "penalty": 5
+        }
+      },
+      "T4": {
+        "H1": {
+          "content": "### 💡Hints\n\n**Hint 1:** Go to the **Pull Requests** tab to review open PRs — you can see their status, comments, and linked issues there.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/pr-hint1.png",
+          "sequence": 1,
+          "penalty": 5
+        },
+        "H2": {
+          "content": "### 💡Hints\n\n**Hint 2:** Click on any PR to view its details — check the \"Files changed\" tab to identify what code needs fixing.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/pr-hint2.png",
+          "sequence": 2,
+          "penalty": 5
+        },
+        "H3": {
+          "content": "### 💡Hints\n\n**Hint 3:** If a GitHub Action fails, open the **\"Checks\"** or **\"Actions\"** tab on the PR to inspect detailed logs and see where the problem occurred.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/pr-hint3.png",
+          "sequence": 3,
+          "penalty": 5
+        }
+      },
+      "T5": {
+        "H1": {
+          "content": "### 💡Hints\n\n**Hint 1:** Before merging, ensure that all checks (tests, builds) have passed — this helps prevent broken code on the main branch.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/merge-hint1.png",
+          "sequence": 1,
+          "penalty": 5
+        },
+        "H2": {
+          "content": "### 💡Hints\n\n**Hint 2:** Use the **\"Merge pull request\"** button on GitHub to combine your feature branch into `main`. Confirm with a commit message if prompted.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/merge-hint2.png",
+          "sequence": 2,
+          "penalty": 5
+        },
+        "H3": {
+          "content": "### 💡Hints\n\n**Hint 3:** After merging, delete your branch (both remote and local) to keep your repo organized. Use `git branch -d <branch>` locally.",
+          "video": null,
+          "image": "https://github.com/user-attachments/assets/merge-hint3.png",
+          "sequence": 3,
+          "penalty": 5
+        }
+      }
+  }
 }
