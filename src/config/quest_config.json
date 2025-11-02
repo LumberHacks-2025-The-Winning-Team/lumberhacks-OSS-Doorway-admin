@@ -103,5 +103,36 @@
       "points": 0,
       "xp": 0
     }
+  },
+  "Q4": {
+    "metadata": {
+      "title": "Advanced GitHub Actions and Testing",
+      "prerequisite": "Q3"
+    },
+    "T1": {
+      "desc": "Create a new branch for your work",
+      "points": 20,
+      "xp": 20
+    },
+    "T2": {
+      "desc": "Copy the GitHub Actions workflow file and commit changes",
+      "points": 25,
+      "xp": 25
+    },
+    "T3": {
+      "desc": "Copy the sample code, fix bugs, and ensure tests pass",
+      "points": 30,
+      "xp": 30
+    },
+    "T4": {
+      "desc": "Review and fix any bugs caught by unit tests",
+      "points": 15,
+      "xp": 15
+    },
+    "T5": {
+      "desc": "Approve PR and ensure integration tests pass",
+      "points": 10,
+      "xp": 10
+    }
   }
 }

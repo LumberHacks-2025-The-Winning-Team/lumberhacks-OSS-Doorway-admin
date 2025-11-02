@@ -68,7 +68,9 @@ async function acceptQuest(context, user_data, quest) {
 }
 
 export async function completeTask(user_data, quest, task, context, db) {
-  const { owner, repo } = context.repo();
+  // Use user's repository instead of admin repository
+  const { owner } = context.repo();
+  const userRepo = user_data._id || context.payload.comment.user.login;
   try {
     const quests = JSON.parse(fs.readFileSync(questFilePath, "utf8"));
 
@@ -108,7 +110,7 @@ export async function completeTask(user_data, quest, task, context, db) {
 
       context.octokit.issues.update({
         owner: owner,
-        repo: repo,
+        repo: userRepo,
         issue_number: context.issue().issue_number,
         state: "closed",
       });
@@ -124,7 +126,7 @@ export async function completeTask(user_data, quest, task, context, db) {
       }
 
 
-      await updateReadme(owner, repo, context, user_data, db);
+      await updateReadme(owner, userRepo, context, user_data, db);
       return true;
     }
     return false;
@@ -175,7 +177,9 @@ async function completeQuest(user_data, quest, context) {
 
 // geenrates "quest" by generating a github issues with the quest details
 async function createQuestEnvironment(user_data, quest, task, context) {
-  const { owner, repo } = context.repo();
+  // Use user's repository instead of admin repository
+  const { owner } = context.repo();
+  const userRepo = user_data._id || context.payload.comment.user.login;
   var response = questResponse;
   var title = quests;
   var flag = false;
@@ -201,14 +205,14 @@ async function createQuestEnvironment(user_data, quest, task, context) {
       // link to OSS repo
       response += `\n\n[Click here to start](https://github.com/${ossRepo})`;
 
-      // create issue for task interaction
+      // create issue for task interaction in user's repository
       const issueComment = context.issue({
         body: response,
       });
-      // new issue for new task
+      // new issue for new task in user's repository
       context.octokit.issues.create({
         owner: owner,
-        repo: repo,
+        repo: userRepo,
         title: `❗ ${quest} ${task}: ` + title,
         body: response,
       });
@@ -222,6 +226,9 @@ async function giveHint(user_data, context, db) {
   // user_data.current.(quest, hint)
   const quest = user_data.current.quest;
   const task = user_data.current.task;
+  // Use user's repository instead of admin repository
+  const { owner } = context.repo();
+  const userRepo = user_data._id || context.payload.comment.user.login;
   var response = '';
 
   // user hints used
@@ -241,10 +248,12 @@ async function giveHint(user_data, context, db) {
   }
 
 
-  var issueComment = context.issue({
+  await context.octokit.issues.createComment({
+    owner: owner,
+    repo: userRepo,
+    issue_number: context.issue().issue_number,
     body: response,
   });
-  await context.octokit.issues.createComment(issueComment);
 
 }
 
@@ -258,7 +267,9 @@ async function validateTask(user_data, context, user, db) {
     const selectedIssue = user_data.selectedIssue;
     const task = user_data.current.task;
     const quest = user_data.current.quest;
-    const { owner, repo } = context.repo();
+    // Use user's repository instead of admin repository
+    const { owner } = context.repo();
+    const userRepo = user_data._id || context.payload.comment.user.login;
 
     // check if quest is in accepted or completed
     const questData = user_data.accepted[quest] || user_data.completed[quest];
@@ -334,13 +345,15 @@ async function validateTask(user_data, context, user, db) {
       .replaceAll("${hintsUsed}", hintsUsed)
       .replaceAll("${pointLoss}", hintsUsed * -5);
 
-    response += `\n\nReturn [Home](https://github.com/${owner}/${repo})`;
+    response += `\n\nReturn [Home](https://github.com/${owner}/${userRepo})`;
 
-    // post the response as a comment on the issue
-    const issueComment = context.issue({
+    // post the response as a comment on the issue in user's repository
+    await context.octokit.issues.createComment({
+      owner: owner,
+      repo: userRepo,
+      issue_number: context.issue().issue_number,
       body: response,
     });
-    await context.octokit.issues.createComment(issueComment);
   } catch (error) {
     console.error("Error validating task: " + error);
   }
@@ -538,7 +551,8 @@ function getMapLink(user_data, quest, task, completed) {
 
 function displayQuests(user_data, context) {
   // Get user data
-  const repo = context.issue();
+  const { owner } = context.repo();
+  const userRepo = user_data._id || context.payload.comment.user.login;
   var task = "";
   var quest = "";
   var completed = "";
@@ -565,11 +579,11 @@ function displayQuests(user_data, context) {
       // if completed, strikeout but keep the issue number link
       let isCompleted = user_data.accepted[quest]?.[taskKey].completed ?? false;
       if (isCompleted) {
-        response += `    -  ~${taskKey} - ${questData[quest][taskKey].desc}~ [[COMPLETED](https://github.com/${repo.owner}/${repo.repo}/issues/${user_data.accepted[quest][taskKey].issueNum})]\n`;
+        response += `    -  ~${taskKey} - ${questData[quest][taskKey].desc}~ [[COMPLETED](https://github.com/${owner}/${userRepo}/issues/${user_data.accepted[quest][taskKey].issueNum})]\n`;
       } else if (task == taskKey) {
         response += `    - ${taskKey} - ${questData[quest][taskKey].desc
-          } [[Click here to start](https://github.com/${repo.owner}/${repo.repo
-          }/issues/${repo.issue_number + 1})]\n`; // WARNING, this is assuming user is responding on the last issue
+          } [[Click here to start](https://github.com/${owner}/${userRepo
+          }/issues/${context.issue().issue_number + 1})]\n`; // WARNING, this is assuming user is responding on the last issue
       } else {
         response += `    - ${taskKey} - ${questData[quest][taskKey].desc}\n`;
       }
@@ -584,7 +598,7 @@ function displayQuests(user_data, context) {
       response += `  - ${questKey} - ${questData[questKey].metadata.title}\n`;
       for (let taskKey in questData[questKey]) {
         if (taskKey === "metadata") continue;
-        response += `    - ~${taskKey} - ${questData[questKey][taskKey].desc}~ [[COMPLETED](https://github.com/${repo.owner}/${repo.repo}/issues/${user_data.completed[questKey][taskKey].issueNum})]\n`;
+        response += `    - ~${taskKey} - ${questData[questKey][taskKey].desc}~ [[COMPLETED](https://github.com/${owner}/${userRepo}/issues/${user_data.completed[questKey][taskKey].issueNum})]\n`;
       }
     }
   }
