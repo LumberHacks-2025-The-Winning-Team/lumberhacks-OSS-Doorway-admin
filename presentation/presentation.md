@@ -147,7 +147,7 @@ Demo
 
 1. Show off the [Public Repo](https://github.com/LumberHacks-2025-The-Winning-Team/lumberhacks-OSS-Doorway-public)
 2. Show off the [Admin Repo](https://github.com/LumberHacks-2025-The-Winning-Team/lumberhacks-OSS-Doorway-admin)
-3. Demonstrate user creation
+3. Demonstrate [user creation](https://github.com/LumberHacks-2025-The-Winning-Team/lumberhacks-OSS-Doorway-admin/issues/3)
 
 <!-- end_slide -->
 
