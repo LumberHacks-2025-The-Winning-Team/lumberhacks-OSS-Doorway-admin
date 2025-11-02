@@ -125,5 +125,51 @@
       "success": "Good Job!",
       "error": "### Oops, That's Not Quite Right! Check if you have an answer for each question and if you are following the answer pattern: [X, X, X]"
     }
-  }
+  },
+  "Q4":{
+    "display": "### 🚀 Choose Your Adventure: GitHub Actions Edition\n\nWelcome to your final challenge — where you’ll bring together everything you’ve learned about Git and GitHub Actions. From creating branches to pushing code, setting up workflows, fixing issues, and merging your changes, this quiz will reinforce each step of the process.\n\nHere’s your roadmap:\n\n- 🌿 **Task 1 - Create a Branch:** Safely separate your work with Git branching.\n- ⚙️ **Task 2 - Copy GitHub Actions Files:** Understand where workflows live and how automation works.\n- 💾 **Task 3 - Commit & Push:** Send your changes to GitHub the right way.\n- 🧠 **Task 4 - Review Pull Requests & Fix Bugs:** Strengthen your collaboration workflow.\n- 🔀 **Task 5 - Merge Your Changes:** Wrap it all up and celebrate your completed workflow!\n\nReady? Let’s go! 💪",
+      
+      "T1": {
+        "accept": "### 🌿 Task 1 - Create a Branch\n\n**Objective:** Learn how to isolate your work safely by creating a new branch.\n\n**Question 1:** Why should you create a new branch before working on a feature?\n\nA) To delete old commits  \nB) To work on new features without affecting the main branch ✅  \nC) To reset your Git history  \nD) To share your work privately  \n\n**Question 2:** Which command both creates and switches to a branch named `feature-update`?\n\nA) `git branch feature-update`  \nB) `git checkout -b feature-update` ✅  \nC) `git add feature-update`  \nD) `git init feature-update`  \n\n**Outcome:** You’ve learned how to branch confidently — the foundation of safe, collaborative development.",
+        "error": "### ⚠️ Not Quite Right!\n\nRemember: branching helps you experiment without touching the main branch. Try again and keep exploring safely!",
+        "success": "### 🌟 Great Work!\n\nYou’ve branched out successfully — mastering one of the most essential Git skills! 🌿"
+        "hints": "💡**Hints Used:** You used **${hintsUsed} hint(s)**, and it cost ${pointLoss} points, you have **${currentPoints}** total points.",
+        "noHints": "💡**Hints Used:** No hints used, congrats on achieving this challenge by yourself."
+      },
+
+      "T2": {
+        "accept": "### ⚙️ Task 2 - Copy GitHub Actions Files\n\n**Objective:** Understand where to place your workflow files and what they do.\n\n**Question 1:** Where should GitHub Actions workflow files be stored to run automatically?\n\nA) `.github/workflows/` ✅  \nB) `.git/workflows/`  \nC) `/actions/`  \nD) `.github/scripts/`  \n\n**Question 2:** What is the purpose of a GitHub Actions YAML file?\n\nA) To style the README  \nB) To automate testing, building, or deployment ✅  \nC) To store user credentials  \nD) To create new repositories  \n\n**Outcome:** You now know where GitHub Actions live and how they bring automation to your projects! ⚡",
+        "error": "### ❌ Almost There!\n\nWorkflows must live inside `.github/workflows/`, and they describe automation steps for your repo. Double-check and try again!",
+        "success": "### ✅ Excellent!\n\nYou’ve successfully understood the core of GitHub Actions — automation at your fingertips! 🤖"
+        "hints": "💡**Hints Used:** You used **${hintsUsed} hint(s)**, and it cost ${pointLoss} points, you have **${currentPoints}** total points.",
+        "noHints": "💡**Hints Used:** No hints used, congrats on achieving this challenge by yourself."
+      },
+
+      "T3": {
+        "accept": "### 💾 Task 3 - Commit & Push Changes\n\n**Objective:** Learn how to save and upload your work to GitHub.\n\n**Question 1:** What’s the correct order to push your changes to GitHub?\n\nA) `git push → git commit → git add`  \nB) `git add → git commit → git push` ✅  \nC) `git commit → git push → git add`  \nD) `git branch → git merge → git push`  \n\n**Question 2:** What does the `-u` flag do in `git push -u origin new-feature`?\n\nA) Uploads all local branches  \nB) Links your local branch to the remote branch for easier future pushes ✅  \nC) Updates your commit history  \nD) Enables force pushes  \n\n**Outcome:** You now know how to properly sync your code — collaboration made easy! 🚀",
+        "error": "### 🚨 Try Again!\n\nRemember the golden Git order: **add → commit → push**. You got this — try again!",
+        "success": "### 🌟 Nicely Done!\n\nYour changes are live and synced — a developer’s proudest moment! 💾"
+        "hints": "💡**Hints Used:** You used **${hintsUsed} hint(s)**, and it cost ${pointLoss} points, you have **${currentPoints}** total points.",
+        "noHints": "💡**Hints Used:** No hints used, congrats on achieving this challenge by yourself."
+      },
+
+      "T4": {
+        "accept": "### 🧠 Task 4 - Review Pull Requests & Fix Bugs\n\n**Objective:** Practice checking pull requests and resolving issues effectively.\n\n**Question 1:** What is the purpose of a pull request (PR)?\n\nA) To delete branches  \nB) To request review and merge of your code ✅  \nC) To automatically fix all issues  \nD) To reset your repository  \n\n**Question 2:** What’s the best first step when a GitHub Action fails on your PR?\n\nA) Ignore it  \nB) Re-run the workflow repeatedly  \nC) Check the logs to identify what went wrong ✅  \nD) Delete the workflow file  \n\n**Outcome:** You’ve learned how to collaborate like a pro — identifying issues and improving your workflow step by step!",
+        "error": "### 🐛 Try Again!\n\nEven seasoned devs hit bugs — but checking logs and understanding your PR flow will help you squash them fast.",
+        "success": "### 🎉 Great Job!\n\nYou’ve handled PR reviews and bug fixes like a real open-source contributor! 🧠🐞"
+        "hints": "💡**Hints Used:** You used **${hintsUsed} hint(s)**, and it cost ${pointLoss} points, you have **${currentPoints}** total points.",
+        "noHints": "💡**Hints Used:** No hints used, congrats on achieving this challenge by yourself."
+      },
+
+      "T5": {
+        "accept": "### 🔀 Task 5 - Merge Your Changes\n\n**Objective:** Finalize your contribution by merging your branch.\n\n**Question 1:** What happens when you merge a pull request into `main`?\n\nA) Your branch commits are added to the main branch ✅  \nB) Your commits are deleted  \nC) The main branch is replaced  \nD) The branch is automatically closed without merging  \n\n**Question 2:** What’s a good practice after merging your PR?\n\nA) Delete your local repository  \nB) Delete your branch to keep things tidy ✅  \nC) Create another PR immediately  \nD) Revert your commits  \n\n**Outcome:** You’ve completed the full development cycle — from creation to merge! Time to celebrate your teamwork. 🎉",
+        "error": "### ⚠️ Almost There!\n\nMerging means combining your work into `main` — but don’t forget to clean up your branches afterward.",
+        "success": "### 🌟 Mission Complete!\n\nYour branch has been merged and your workflow is complete. Welcome to the world of clean, collaborative development! 🔀"
+      },
+      "T6": {
+        "accept": "### ⚙️ GitHub Actions Quiz\nTest your understanding of how GitHub Actions works and how workflows help automate your development process.\n\n### Question 1:\n**Where should GitHub Actions workflow files be stored for them to run automatically?**\n\nA) `.workflows/`  \nB) `.github/actions/`  \nC) `.github/workflows/`  \nD) `.github/config/`  \n\n### Question 2:\n**Which file extension must a workflow file have to be recognized by GitHub?**\n\nA) `.json`  \nB) `.git`  \nC) `.yml` or `.yaml`  \nD) `.action`  \n\n### Question 3:\n**What triggers a GitHub Action to run by default when you push new commits?**\n\nA) You manually click “Run” in the Actions tab  \nB) The `on: push` event defined in the workflow  \nC) A new branch is created  \nD) The repository owner approves it  \n\n### Question 4:\n**If your workflow fails, where can you find detailed logs about the failure?**\n\nA) In your local terminal output  \nB) In the “Actions” or “Checks” tab of your pull request  \nC) In the `.gitignore` file  \nD) Under the repository “Settings” tab  \n\n### Question 5:\n**What is one advantage of using GitHub Actions?**\n\nA) Automates testing, builds, and deployments directly in your repo  \nB) Deletes old branches automatically  \nC) Creates commits for you  \nD) Rewrites your code for optimization  \n\n### Question 6:\n**If you edit your workflow file but don’t see it running, what’s the most likely cause?**\n\nA) The filename is too long  \nB) The file isn’t in the `.github/workflows/` folder  \nC) You didn’t star your repository  \nD) You’re on the wrong GitHub plan  \n\n## Important: please provide answers in the format [x,x,x,x,x,x]",
+        "success": "### 🎉 Great Work!\nYou’ve mastered the fundamentals of GitHub Actions! You now understand how workflows are structured, triggered, and debugged — essential for automating real-world development pipelines. 🚀",
+        "error": "### ⚠️ Oops, That’s Not Quite Right!\nDouble-check where workflows live (`.github/workflows/`) and when they trigger (`on: push`). Try again and make sure your answers follow the format [X,X,X,X,X,X]!"
+      }
+
 }

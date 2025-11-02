@@ -103,5 +103,41 @@
       "points": 0,
       "xp": 0
     }
+  },
+  "Q4":{
+    "metadata":{
+      "title": "Working with GitHub Actions"
+      "prerequisite": "Q3"
+    },
+    "T1":{
+      "desc": "Create a branch!",
+      "points": 30,
+      "xp": 30
+    },
+    "T2":{
+      "desc": "Copy all the GitHub Actions files from the public repo into yours!",
+      "points": 30,
+      "xp": 30
+    },
+    "T3":{
+      "desc": "Commit and push your changes!"
+      "points":
+      "xp":
+    }
+    "T4":{
+      "desc": "Check pull requests tab and fix bugs in the code!",
+      "points": 30,
+      "xp": 30
+    },
+    "T5":{
+      "desc": "Merge your changes!",
+      "points": 40,
+      "xp": 40
+    },
+    "T6":{
+      "desc": "Quiz",
+      "points": 0,
+      "xp": 0
+    },
   }
 }
